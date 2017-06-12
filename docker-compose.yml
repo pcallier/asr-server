@@ -18,6 +18,8 @@ services:
         build:
             context: .
             dockerfile: Dockerfile.worker
+        volumes:
+            - ./kaldi-gstreamer-server:/opt/models
         networks:
             asr_net:
                 ipv4_address: 172.16.201.11
