@@ -1,0 +1,5 @@
+FROM jcsilva/docker-kaldi-gstreamer-server:latest
+
+ADD start-master.sh /opt
+
+CMD [ "/opt/start-master.sh" ]
