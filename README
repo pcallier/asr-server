@@ -15,3 +15,16 @@ which requires a bit of logging into the container and other setup.
 
 I've tested the HTTP interface (https://github.com/alumae/kaldi-gstreamer-server#alternative-usage-through-a-http-api),
 but the websocket interface should also work.
+
+## Example
+
+Using the test file from the [kaldi-gstreamer-server](https://github.com/alumae/kaldi-gstreamer-server)
+repo:
+```
+curl -T kaldi-gstreamer-server/test/data/english_test.wav http://localhost:5477/client/dynamic/recognize
+```
+
+Response:
+```
+{"status": 0, "hypotheses": [{"utterance": "one two three four five six seven eight."}], "id": "63b163b7-485d-43b0-b270-4926eddc8896"}
+```
