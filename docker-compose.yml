@@ -1,36 +1,20 @@
-version: '2'
+version: "2"
 
 services:
     master:
         image: kaldi-gstreamer-master
         container_name: asr-master
         build:
-            context: .
-            dockerfile: Dockerfile.master
+            context: docker
+            dockerfile: docker/Dockerfile.master
         ports:
             - "5477:80"
-        # networks:
-        #     asr_net:
-        #         ipv4_address: 172.16.201.10
+
     worker:
         image: kaldi-gstreamer-worker
         container_name: asr-worker
         build:
-            context: .
-            dockerfile: Dockerfile.worker
+            context: docker
+            dockerfile: docker/Dockerfile.worker
         volumes:
             - ./kaldi-gstreamer-server:/opt/models
-        # networks:
-        #     asr_net:
-        #         ipv4_address: 172.16.201.11
-
-# networks:
-#   asr_net:
-#     driver: bridge
-#     driver_opts:
-#       com.docker.network.enable_1pv6: "false"
-#     ipam:
-#       driver: default
-#       config:
-#       - subnet: 172.16.201.0/24
-#         gateway: 172.16.201.1

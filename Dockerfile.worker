@@ -1,6 +1,0 @@
-FROM jcsilva/docker-kaldi-gstreamer-server:latest
-
-ADD start-worker.sh /opt
-WORKDIR /opt/models
-
-ENTRYPOINT [ "/opt/start-worker.sh", "-y", "/opt/models/sample_english_nnet2.yaml", "-m", "master", "-p", "5477" ]
